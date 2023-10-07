@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer components {
+
+  .nav-li-primary:hover {
+    @apply bg-primary-300 text-text-100
+  }
+
+  .nav-li-primary:hover > .link-primary > svg {
+    @apply fill-text-100;
+  }
+
+  .nav-li-primary > .link-primary > svg {
+    @apply fill-text-300 w-6;
+  }
+
+
+
+  .link-primary {
+    @apply w-full flex items-center gap-6 text-sm px-4 py-4;
+  }
+  .nav-ul-primary {
+    @apply flex items-center flex-col bg-primary-50 px-2 gap-0.5 py-1;
+  }
+  .nav-li-primary {
+    @apply w-full rounded text-text-50 cursor-pointer;
+  }
+
+  .typography-orange {
+    background-image: linear-gradient(#f36534 25%,#f69f27);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .typography-sky {
+    background-image: linear-gradient(#00b7fa 25%,#01cfea);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* .typography > p {
+    @apply py-1;
+  } */
+  .typography > p > span {
+    @apply px-2.5;
+  }
+}
+
+/* bg-gradient-to-b from-cyan-500 to-blue-500
+
+.color_orange {
+  background-image: linear-gradient(#00b7fa 25%,#01cfea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.color_blue {
+  background-image: linear-gradient(#00b7fa 25%,#01cfea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.typography {
+  div {
+      display: flex;
+      gap: 1rem;
+  }
+} */
