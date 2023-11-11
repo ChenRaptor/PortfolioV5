@@ -3,14 +3,12 @@ import Image from 'next/image'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 export default function Home() {
   return (
-    <main className="flex min-h-screen h-screen">
-      <SideBarNav/>
-      <div className="relative isolate overflow-hidden bg-gray-900 w-full">
+      <div className="relative isolate overflow-hidden bg-gray-900 w-full h-full">
 
 
 
       <svg
-        className="absolute inset-0 -z-10 h-full w-full stroke-secondary-50/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        className="absolute inset-0 -z-10 h-full w-full stroke-accent-light/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
       >
         <defs>
@@ -25,7 +23,7 @@ export default function Home() {
             <path d="M.5 200V.5H200" fill="none" />
           </pattern>
         </defs>
-        <svg x="50%" y={-1} className="overflow-visible fill-secondary-50/5">
+        <svg x="50%" y={-1} className="overflow-visible fill-accent-light/5">
           <path
             d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
             strokeWidth={0}
@@ -101,9 +99,5 @@ export default function Home() {
         </div> */}
       </div>
     </div>
-
-
-
-    </main>
   )
 }

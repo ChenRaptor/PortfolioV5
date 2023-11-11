@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import SideBarNav from '@/components/SideBarNav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-b from-gradient-top to-gradient-bottom">{children}</body>
+      <body className="bg-gradient-to-b from-gradient-top to-gradient-bottom">
+        <main className="flex min-h-screen h-screen">
+          <SideBarNav/>
+          <div className="flex items-center justify-center w-full">
+            {children}
+          </div>
+        </main>
+      </body>
     </html>
   )
 }
