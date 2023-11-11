@@ -4,9 +4,37 @@ import CardPaper from "./components/CardPaper/CardPaper";
 
 
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/20/solid'
-import SlideOvers from "@/components/SlideOvers";
+import SlideOvers from "@/components/custom/SlideOvers/SlideOvers";
 import { useState } from "react";
-import ActionPanels from "@/components/custom/ActionPanels/ActionPanels";
+import ActionPanel, { ActionPanelConfig } from "@/components/custom/ActionPanel/ActionPanel";
+
+const config : ActionPanelConfig = {
+  formTitle: "Upload a project",
+  formDescription: "Change the email address you want associated with your account.",
+  formFields: [
+    {
+      name: "projectName",
+      type: "text",
+      label: "Project name",
+      description: "This is your public display name.",
+      placeholder: "Project name",
+      defaultValue: "okas",
+      schema: {
+        min: 2,
+        max: 10
+      }
+    },
+  ]
+}
+
+
+
+
+
+
+
+
+
 
 const people = [{},{},{},{}]
 
@@ -45,7 +73,7 @@ export default function Projects() {
   const [open, setOpen] = useState(true)
   return (
     <div className="overflow-hidden rounded-lg bg-white shadow h-full lg:px-16 w-full">
-      <ActionPanels/>
+      <ActionPanel config={config} />
       <div className="px-4 py-5 sm:px-6">
         <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-4xl">
             Projects

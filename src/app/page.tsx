@@ -1,4 +1,4 @@
-import SideBarNav from '@/components/SideBarNav'
+import SideBarNav from '@/components/custom/SideBarNav/SideBarNav'
 import Image from 'next/image'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 export default function Home() {
