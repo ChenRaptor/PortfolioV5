@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className="bg-gradient-to-b from-gradient-top to-gradient-bottom">
         <main className="flex min-h-screen h-screen">
           <SideBarNav/>
-          <div className="flex items-center justify-center w-full">
+          <div className="flex items-center justify-center w-full relative">
             {children}
           </div>
         </main>

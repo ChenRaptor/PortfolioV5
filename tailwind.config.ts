@@ -30,6 +30,10 @@ module.exports = {
           dark: '#999'
         }
       },
+      secondary: {
+        base: '#16151e',
+        button: '#444747'
+      },
       accent: {
         light: '#78ceb1'
       },
@@ -51,5 +55,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/forms')],
 }
