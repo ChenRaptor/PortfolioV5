@@ -16,12 +16,20 @@ const config : ActionPanelConfig = {
       name: "projectName",
       type: "text",
       label: "Project name",
-      description: "This is your public display name.",
       placeholder: "Project name",
-      defaultValue: "okas",
       schema: {
         min: 2,
         max: 10
+      }
+    },
+    {
+      name: "projectDescription",
+      type: "text",
+      label: "Project description",
+      placeholder: "Project description",
+      schema: {
+        min: 5,
+        max: 12
       }
     },
   ]

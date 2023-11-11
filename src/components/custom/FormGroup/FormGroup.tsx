@@ -9,9 +9,9 @@ export interface FormGroupInterface {
     name: string
     type: string
     label: string
-    description: string
+    description?: string
     placeholder: string
-    defaultValue: string
+    defaultValue?: string
     schema: {
         min: number,
         max: number
@@ -29,9 +29,11 @@ export default function FormGroup({config, form} : {config: FormGroupInterface, 
                 <FormControl>
                 <Input type={config.type} placeholder={config.placeholder} {...field} />
                 </FormControl>
-                <FormDescription>
-                    {config.description}
-                </FormDescription>
+                {Boolean(config.description) &&
+                    <FormDescription>
+                        {config.description}
+                    </FormDescription>
+                }
                 <FormMessage />
             </FormItem>
             )}

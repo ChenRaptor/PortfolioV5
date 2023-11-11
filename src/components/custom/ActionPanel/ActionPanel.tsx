@@ -27,7 +27,7 @@ export default function ActionPanels({config} : ActionPanelProps) {
 
   config.formFields.forEach(({name, defaultValue, schema}) => {
 
-    defaultValues[name] = defaultValue;
+    if (defaultValue) defaultValues[name] = defaultValue;
 
     defaultSchema[name] = z.string().superRefine((data, ctx) => {
       if (data.length > schema.max) {
