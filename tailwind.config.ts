@@ -34,6 +34,12 @@ module.exports = {
         base: '#16151e',
         button: '#444747'
       },
+      button: {
+        negative: '#f87171'
+      },
+      alert: {
+        error: '#f87171'
+      },
       accent: {
         light: '#78ceb1'
       },

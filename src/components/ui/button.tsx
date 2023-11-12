@@ -9,6 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        negative:
+          "bg-primar"
         primary:
           "bg-primary-base text-accent-light shadow hover:bg-accent-light/20 hover:text-accent-light",
         default:

@@ -1,10 +1,10 @@
 .overlay {
-	@apply absolute top-0 bottom-0 left-0 right-0 z-50 bg-primary-light/90 flex items-center justify-center
+	@apply absolute top-0 bottom-0 left-0 right-0 z-10 bg-primary-light/90 flex items-center justify-center
 }
 .box {
-	@apply bg-primary-base shadow-xl sm:rounded-lg w-fit border border-accent-light/10
+	@apply bg-primary-base shadow-xl sm:rounded-lg w-fit border border-accent-light/10 z-20
 }
-.boxcontent {
+.box-content {
 	@apply px-4 py-5 sm:p-6
 }
 .title {
@@ -15,4 +15,7 @@
 }
 .form {
 	@apply space-y-4 mt-4
+}
+.action-button {
+  @apply flex items-center justify-end gap-2
 }

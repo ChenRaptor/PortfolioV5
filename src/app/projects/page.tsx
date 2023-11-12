@@ -7,10 +7,13 @@ import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/20/solid'
 import SlideOvers from "@/components/custom/SlideOvers/SlideOvers";
 import { useState } from "react";
 import ActionPanel, { ActionPanelConfig } from "@/components/custom/ActionPanel/ActionPanel";
+import { useBoolean } from "usehooks-ts";
 
 const config : ActionPanelConfig = {
   formTitle: "Upload a project",
   formDescription: "Change the email address you want associated with your account.",
+  formSubmit: "Submit",
+  formCancel: "Cancel",
   formFields: [
     {
       name: "projectName",
@@ -35,21 +38,14 @@ const config : ActionPanelConfig = {
   ]
 }
 
-
-
-
-
-
-
-
-
-
 const people = [{},{},{},{}]
 
-function Example() {
+function ListProject({openNewProjectActionPanel} : {openNewProjectActionPanel: () => void}) {
+
   return (
     <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <button
+        onClick={openNewProjectActionPanel}
         type="button"
         className="relative block w-full rounded-lg border-2 border-dashed p-12 text-center hover:border-accent-light hover:text-accent-light"
       >
@@ -78,17 +74,24 @@ function Example() {
 
 export default function Projects() {
 
-  const [open, setOpen] = useState(true)
+  const {
+    value: newProjectActionPanel, 
+    setTrue: openNewProjectActionPanel, 
+    setFalse: closeNewProjectActionPanel 
+  } = useBoolean(false);
+
   return (
     <div className="overflow-hidden rounded-lg bg-white shadow h-full lg:px-16 w-full">
-      <ActionPanel config={config} />
+      
+      <ActionPanel config={config} active={newProjectActionPanel} onClose={closeNewProjectActionPanel} />
+
       <div className="px-4 py-5 sm:px-6">
         <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-4xl">
       Projects
         </h1>
       </div>
       <div className="px-4 py-5 sm:p-6">
-        <Example/>
+        <ListProject openNewProjectActionPanel={openNewProjectActionPanel}/>
       </div>
       <div className="px-4 py-4 sm:px-6">
         {/* Content goes here */}

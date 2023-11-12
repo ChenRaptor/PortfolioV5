@@ -8,18 +8,31 @@ import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
 import FormGroup, { FormGroupInterface } from "../FormGroup/FormGroup"
 import styles from "./ActionPanel.module.css"
+import { MouseEventHandler } from "react"
 // Inteface
 export interface ActionPanelConfig {
   formTitle: string
   formDescription: string
+  formSubmit: string
+  formCancel: string
   formFields: Array<FormGroupInterface>
 }
 
 export interface ActionPanelProps {
   config: ActionPanelConfig
+  active: boolean
+  onClose: () => void
 }
 
-export default function ActionPanels({config} : ActionPanelProps) {
+export function prevent(fn?: any, defaultOnly?: any) {
+  return (e: { preventDefault: () => any; stopPropagation: () => any }, ...params : any) => {
+      e && e.preventDefault()
+      !defaultOnly && e && e.stopPropagation()
+      fn && fn(e, ...params)
+  }
+}
+
+export default function ActionPanels({config, active, onClose} : ActionPanelProps) {
   const defaultValues : any = {};
   const defaultSchema : any = {};
 
@@ -54,9 +67,11 @@ export default function ActionPanels({config} : ActionPanelProps) {
   }
   
   return (
-    <div className={styles['overlay']}>
-      <div className={styles['box']}>
-        <div className={styles['boxcontent']}>
+    <>
+    { active &&
+    <div className={styles['overlay']} onClick={onClose}>
+      <div className={styles['box']} onClick={prevent()}>
+        <div className={styles['box-content']}>
           <h3 className={styles['title']}>{config.formTitle}</h3>
           <div className={styles['description']}>
             <p>{config.formDescription}</p>
@@ -66,11 +81,16 @@ export default function ActionPanels({config} : ActionPanelProps) {
               {config.formFields.map((formField, key) => (
                 <FormGroup config={formField} form={form} key={`formField-${key}`}/>
               ))}
-              <Button type="submit">Submit</Button>
+              <div className={styles['action-button']}>
+                <Button onClick={onClose}>{config.formCancel}</Button>
+                <Button type="submit">{config.formSubmit}</Button>
+              </div>
             </form>
           </Form>
         </div>
       </div>
     </div>
+    }
+    </>
   )
 }
