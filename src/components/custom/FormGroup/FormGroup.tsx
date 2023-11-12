@@ -24,18 +24,18 @@ export default function FormGroup({config, form} : {config: FormGroupInterface, 
       control={form.control}
       name={config.name}
       render={({ field }) => (
-      <FormItem>
-        <FormLabel>{config.label}</FormLabel>
-        <FormControl>
-        <Input type={config.type} placeholder={config.placeholder} {...field} />
-        </FormControl>
-        {Boolean(config.description) &&
+        <FormItem>
+          <FormLabel>{config.label}</FormLabel>
+          <FormControl>
+            <Input type={config.type} placeholder={config.placeholder} {...field} />
+          </FormControl>
+          {Boolean(config.description) &&
           <FormDescription>
             {config.description}
           </FormDescription>
-        }
-        <FormMessage />
-      </FormItem>
+          }
+          <FormMessage />
+        </FormItem>
       )}
     />
   )

@@ -24,53 +24,53 @@ export default function ActionPanels({config} : ActionPanelProps) {
   const defaultSchema : any = {};
 
   config.formFields.forEach(({name, defaultValue, schema}) => {
-  if (defaultValue) defaultValues[name] = defaultValue;
+    if (defaultValue) defaultValues[name] = defaultValue;
 
-  defaultSchema[name] = z.string().superRefine((data, ctx) => {
-  if (data.length > schema.max) {
-  ctx.addIssue({
-    code: z.ZodIssueCode.custom,
-    message: `Must be at most ${schema.max} characters.`
-  });
-  }
-  if (data.length < schema.min) {
-  ctx.addIssue({
-    code: z.ZodIssueCode.custom,
-    message: `Must be at least ${schema.min} characters.`
-  });
-  }
-  })
+    defaultSchema[name] = z.string().superRefine((data, ctx) => {
+      if (data.length > schema.max) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Must be at most ${schema.max} characters.`
+        });
+      }
+      if (data.length < schema.min) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Must be at least ${schema.min} characters.`
+        });
+      }
+    })
   })
 
   const formSchema = z.object(defaultSchema)
 
   const form = useForm<z.infer<typeof formSchema>>({
-  resolver: zodResolver(formSchema),
-  defaultValues: defaultValues,
+    resolver: zodResolver(formSchema),
+    defaultValues: defaultValues,
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-  console.log(values)
+    console.log(values)
   }
   
   return (
-  <div className={styles['overlay']}>
-  <div className={styles['box']}>
-  <div className={styles['boxcontent']}>
-    <h3 className={styles['title']}>{config.formTitle}</h3>
-    <div className={styles['description']}>
-    <p>{config.formDescription}</p>
+    <div className={styles['overlay']}>
+      <div className={styles['box']}>
+        <div className={styles['boxcontent']}>
+          <h3 className={styles['title']}>{config.formTitle}</h3>
+          <div className={styles['description']}>
+            <p>{config.formDescription}</p>
+          </div>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className={styles.form}>
+              {config.formFields.map((formField, key) => (
+                <FormGroup config={formField} form={form} key={`formField-${key}`}/>
+              ))}
+              <Button type="submit">Submit</Button>
+            </form>
+          </Form>
+        </div>
+      </div>
     </div>
-    <Form {...form}>
-    <form onSubmit={form.handleSubmit(onSubmit)} className={styles.form}>
-    {config.formFields.map((formField) => (
-      <FormGroup config={formField} form={form} />
-    ))}
-    <Button type="submit">Submit</Button>
-    </form>
-    </Form>
-  </div>
-  </div>
-  </div>
   )
 }

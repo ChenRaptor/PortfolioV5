@@ -4,20 +4,20 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 export default function CardPaper() {
   return (
     <Card>
-    <CardHeader>
-      <CardTitle>Create project</CardTitle>
-      <CardDescription>Deploy your new project in one-click.</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <form>
-      <div className="grid w-full items-center gap-4">
-        <div className="flex flex-col space-y-1.5">
-        {/* <Label htmlFor="name">Name</Label> */}
-        {/* <Input id="name" placeholder="Name of your project" /> */}
-        </div>
-        <div className="flex flex-col space-y-1.5">
-        {/* <Label htmlFor="framework">Framework</Label> */}
-        {/* <Select>
+      <CardHeader>
+        <CardTitle>Create project</CardTitle>
+        <CardDescription>Deploy your new project in one-click.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form>
+          <div className="grid w-full items-center gap-4">
+            <div className="flex flex-col space-y-1.5">
+              {/* <Label htmlFor="name">Name</Label> */}
+              {/* <Input id="name" placeholder="Name of your project" /> */}
+            </div>
+            <div className="flex flex-col space-y-1.5">
+              {/* <Label htmlFor="framework">Framework</Label> */}
+              {/* <Select>
           <SelectTrigger id="framework">
           <SelectValue placeholder="Select" />
           </SelectTrigger>
@@ -28,13 +28,13 @@ export default function CardPaper() {
           <SelectItem value="nuxt">Nuxt.js</SelectItem>
           </SelectContent>
         </Select> */}
-        </div>
-      </div>
-      </form>
-    </CardContent>
-    <CardFooter className="flex justify-between">
-      <Button>Deploy</Button>
-    </CardFooter>
+            </div>
+          </div>
+        </form>
+      </CardContent>
+      <CardFooter className="flex justify-between">
+        <Button>Deploy</Button>
+      </CardFooter>
     </Card>
   )
 }

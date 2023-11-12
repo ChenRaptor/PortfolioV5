@@ -3,28 +3,28 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 export default function Projects() {
   return (
-  <div className="overflow-hidden rounded-lg bg-white shadow h-full lg:px-16 w-full">
-    <div className="px-4 py-5 sm:px-6">
-    <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-4xl">
+    <div className="overflow-hidden rounded-lg bg-white shadow h-full lg:px-16 w-full">
+      <div className="px-4 py-5 sm:px-6">
+        <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-4xl">
       About me
-    </h1>
-    </div>
-    <div className="px-4 py-5 sm:p-6">
-    <Card className="w-[350px]">
-    <CardHeader>
-      <CardTitle>Create project</CardTitle>
-      <CardDescription>Deploy your new project in one-click.</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <form>
-      <div className="grid w-full items-center gap-4">
-        <div className="flex flex-col space-y-1.5">
-        {/* <Label htmlFor="name">Name</Label> */}
-        {/* <Input id="name" placeholder="Name of your project" /> */}
-        </div>
-        <div className="flex flex-col space-y-1.5">
-        {/* <Label htmlFor="framework">Framework</Label> */}
-        {/* <Select>
+        </h1>
+      </div>
+      <div className="px-4 py-5 sm:p-6">
+        <Card className="w-[350px]">
+          <CardHeader>
+            <CardTitle>Create project</CardTitle>
+            <CardDescription>Deploy your new project in one-click.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form>
+              <div className="grid w-full items-center gap-4">
+                <div className="flex flex-col space-y-1.5">
+                  {/* <Label htmlFor="name">Name</Label> */}
+                  {/* <Input id="name" placeholder="Name of your project" /> */}
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  {/* <Label htmlFor="framework">Framework</Label> */}
+                  {/* <Select>
           <SelectTrigger id="framework">
           <SelectValue placeholder="Select" />
           </SelectTrigger>
@@ -35,20 +35,20 @@ export default function Projects() {
           <SelectItem value="nuxt">Nuxt.js</SelectItem>
           </SelectContent>
         </Select> */}
-        </div>
+                </div>
+              </div>
+            </form>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button variant="outline">Cancel</Button>
+            <Button>Deploy</Button>
+          </CardFooter>
+        </Card>
       </div>
-      </form>
-    </CardContent>
-    <CardFooter className="flex justify-between">
-      <Button variant="outline">Cancel</Button>
-      <Button>Deploy</Button>
-    </CardFooter>
-    </Card>
+      <div className="px-4 py-4 sm:px-6">
+        {/* Content goes here */}
+        {/* We use less vertical padding on card footers at all sizes than on headers or body sections */}
+      </div>
     </div>
-    <div className="px-4 py-4 sm:px-6">
-    {/* Content goes here */}
-    {/* We use less vertical padding on card footers at all sizes than on headers or body sections */}
-    </div>
-  </div>
   )
 }
